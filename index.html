@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Редизайн motoshop.ua без переїзду з Хорошопу: до і після на реальних скріншотах, три варіанти дизайну, етапи й вартість.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Редизайн motoshop.ua">
+<meta property="og:description" content="Редизайн motoshop.ua без переїзду з Хорошопу: до і після на реальних скріншотах, три варіанти дизайну, етапи й вартість.">
+<meta property="og:image" content="https://druzhestitch.github.io/motoshop-proposal/shots/prod-a-after.jpg">
+<meta property="og:url" content="https://druzhestitch.github.io/motoshop-proposal/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0e0e0d">
+<style>
+  /* базовий reset (на артефакті його дає обгортка) */
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+  :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+</style>
+<title>Редизайн motoshop.ua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,700..900&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+  /* Свідомо одна темна тема — у світі мотосалону й фірмового стилю MOTOshop */
+  :root {
+    color-scheme: dark;
+    --asphalt: #0e0e0d;
+    --graphite: #181816;
+    --graphite-2: #22211f;
+    --line: #2e2d2a;
+    --text: #f1efea;
+    --muted: #a09b92;
+    --orange: #fc3905;
+    --orange-soft: rgba(252, 57, 5, .14);
+    --plate: #ecebe7;
+    --display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+    --body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--asphalt); color: var(--text); font: 400 17px/1.6 var(--body); font-stretch: 100%; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding-inline: 24px; }
+  @media (max-width: 600px) { .wrap { padding-inline: 16px; } body { font-size: 16px; } }
+  a { color: inherit; }
+  h1, h2, h3 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 900; font-stretch: 125%; text-transform: uppercase; letter-spacing: -.01em; line-height: .98; text-wrap: balance; }
+  h1 { font-size: clamp(40px, 7.4vw, 104px); }
+  h2 { font-size: clamp(30px, 4.6vw, 60px); }
+  h3 { font-size: clamp(19px, 1.8vw, 22px); font-stretch: 112%; line-height: 1.15; }
+  p { margin: 0; max-width: 64ch; }
+  .muted { color: var(--muted); }
+  .eyebrow { font: 700 12px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  section { padding-block: 96px 24px; }
+  section > .wrap > header { display: grid; gap: 18px; margin-bottom: 44px; }
+  @media (max-width: 600px) { section { padding-block: 64px 16px; } }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+
+  /* ---------- hero ---------- */
+  .hero { padding-block: 64px 40px; border-bottom: 1px solid var(--line); background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(252, 57, 5, .18), transparent 60%), var(--asphalt); }
+  .hero h1 em { font-style: italic; color: var(--orange); }
+  .hero .lede { margin-top: 26px; font-size: clamp(18px, 1.6vw, 21px); color: #d9d5ce; max-width: 58ch; }
+  .facts { margin-top: 48px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .fact { padding: 22px 20px 6px 0; display: grid; gap: 6px; align-content: start; }
+  .fact + .fact { padding-left: 20px; border-left: 1px solid var(--line); }
+  .fact b { font: 800 italic clamp(30px, 3.4vw, 46px)/1 var(--display); font-stretch: 125%; color: var(--text); }
+  .fact b span { color: var(--orange); }
+  .fact small { color: var(--muted); font-size: 14px; line-height: 1.4; }
+  @media (max-width: 820px) { .facts { grid-template-columns: 1fr 1fr; } .fact:nth-child(3) { padding-left: 0; border-left: 0; } .fact:nth-child(n+3) { border-top: 1px solid var(--line); } }
+
+  /* ---------- повзунок до/після ---------- */
+  .compare { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--graphite); aspect-ratio: 1440 / 900; max-width: 100%; user-select: none; touch-action: pan-y; }
+  .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; pointer-events: none; }
+  .compare .after-wrap { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--pos, 50%)); }
+  .compare .handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: var(--orange); transform: translateX(-1px); }
+  .compare .knob { position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; border-radius: 50%; background: var(--orange); transform: translate(-50%, -50%); display: grid; place-items: center; box-shadow: 0 6px 24px rgba(0,0,0,.5); }
+  .compare .tag { position: absolute; top: 14px; padding: 7px 10px; border-radius: 4px; font: 700 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; background: rgba(14,14,13,.85); color: var(--text); }
+  .compare .tag.l { left: 14px; }
+  .compare .tag.r { right: 14px; background: var(--orange); color: #fff; }
+  .compare input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+  .compare-note { margin-top: 12px; font: 500 13px/1.4 var(--mono); color: var(--muted); }
+  .compare-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-top: 44px; }
+
+  /* ---------- проблеми ---------- */
+  .problems { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 0 40px; }
+  .problems li { border-top: 1px solid var(--line); padding: 22px 0 26px; display: grid; gap: 8px; }
+  .problems .n { font: 800 italic 38px/1 var(--display); font-stretch: 125%; color: var(--orange); }
+  .problems strong { font-size: 18px; }
+  .problems p { color: var(--muted); font-size: 16px; }
+
+  /* ---------- модулі ---------- */
+  .pages { display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .page-card { background: var(--graphite); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: grid; gap: 14px; align-content: start; }
+  .page-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .page-card li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; color: #d9d5ce; font-size: 16px; line-height: 1.45; }
+  .page-card li::before { content: ""; width: 8px; height: 8px; margin-top: 8px; background: var(--orange); transform: skewX(-18deg); }
+
+  /* ---------- варіанти ---------- */
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+  .tabs button { font: 700 14px/1 var(--body); font-stretch: 112%; text-transform: uppercase; letter-spacing: .04em; padding: 14px 18px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--orange); border-color: var(--orange); color: #fff; }
+  .tabs button:hover:not([aria-selected="true"]) { border-color: var(--text); }
+  .variant { display: grid; gap: 26px; }
+  .variant-head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: end; }
+  .variant-head .who { border-left: 2px solid var(--orange); padding-left: 16px; color: #d9d5ce; font-size: 16px; }
+  .variant-head .who b { display: block; font: 700 12px/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  @media (max-width: 820px) { .variant-head { grid-template-columns: 1fr; } }
+  .gallery { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, .5fr); gap: 14px; align-items: start; }
+  .gallery .phone { grid-column: 3; grid-row: 1 / span 2; }
+  .gallery figure { margin: 0; display: grid; gap: 8px; }
+  .gallery figcaption { font: 600 12px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .gallery button { all: unset; cursor: zoom-in; display: block; line-height: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--graphite); }
+  .gallery button:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+  .gallery img { width: 100%; height: auto; display: block; }
+  .gallery .phone button { border-radius: 16px; }
+  @media (max-width: 900px) { .gallery { grid-template-columns: 1fr 1fr; } .gallery .phone { grid-column: auto; grid-row: auto; } }
+  .swatches { display: flex; gap: 8px; align-items: center; font: 500 12px/1 var(--mono); color: var(--muted); }
+  .swatches i { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15); display: inline-block; }
+
+  /* ---------- як це працює ---------- */
+  .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+  .how > div { padding: 24px 24px 28px 0; display: grid; gap: 10px; align-content: start; }
+  .how > div + div { border-left: 1px solid var(--line); padding-left: 24px; }
+  @media (max-width: 820px) { .how > div + div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); } }
+  .how p { color: var(--muted); font-size: 16px; }
+  .snippet { margin-top: 36px; background: var(--graphite); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; overflow-x: auto; }
+  .snippet pre { margin: 0; font: 500 13px/1.7 var(--mono); color: #d9d5ce; white-space: pre; }
+  .snippet .c { color: var(--muted); }
+  .snippet .o { color: var(--orange); }
+
+  /* ---------- етапи ---------- */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; counter-reset: s; }
+  .steps li { counter-increment: s; background: var(--graphite); border: 1px solid var(--line); border-radius: 12px; padding: 22px; display: grid; gap: 10px; align-content: start; }
+  .steps li::before { content: counter(s, decimal-leading-zero); font: 800 italic 30px/1 var(--display); font-stretch: 125%; color: var(--orange); }
+  .steps li.done { border-color: rgba(252, 57, 5, .5); }
+  .steps li.done h3::after { content: " ✓"; color: var(--orange); }
+  .steps p { color: var(--muted); font-size: 15px; }
+
+  /* ---------- пакети ---------- */
+  .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; align-items: stretch; }
+  .plan { background: var(--graphite); border: 1px solid var(--line); border-radius: 16px; padding: 28px; display: grid; gap: 18px; grid-template-rows: auto auto 1fr auto; }
+  .plan.featured { border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange), 0 30px 80px rgba(252, 57, 5, .12); position: relative; }
+  .plan.featured::before { content: "Рекомендую"; position: absolute; top: -12px; left: 24px; background: var(--orange); color: #fff; font: 700 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 7px 10px; border-radius: 4px; }
+  .plan .price { font: 800 italic 34px/1 var(--display); font-stretch: 125%; }
+  .plan .price small { display: block; margin-top: 8px; font: 500 13px/1.3 var(--mono); font-style: normal; color: var(--muted); letter-spacing: 0; }
+  .plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; align-content: start; }
+  .plan li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; font-size: 15px; line-height: 1.45; color: #d9d5ce; }
+  .plan li::before { content: "→"; color: var(--orange); font-weight: 700; }
+  .plan .for { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
+
+  /* ---------- потрібно від вас ---------- */
+  .needs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .needs div { border: 1px dashed #3d3b37; border-radius: 12px; padding: 20px; display: grid; gap: 8px; }
+  .needs p { color: var(--muted); font-size: 15px; }
+
+  /* ---------- фінал ---------- */
+  .final { margin-top: 40px; padding-block: 80px; border-top: 1px solid var(--line); background: radial-gradient(900px 400px at 10% 120%, rgba(252, 57, 5, .22), transparent 60%); }
+  .final .wrap { display: grid; gap: 22px; }
+  .final .choices { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .final .choices span { font: 800 italic 20px/1 var(--display); font-stretch: 125%; padding: 14px 20px; border: 1px solid var(--line); border-radius: 999px; }
+  .final .choices span b { color: var(--orange); }
+  footer.end { padding-block: 26px 40px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+
+  /* лайтбокс */
+  dialog { border: 0; padding: 0; background: transparent; max-width: min(1440px, 96vw); max-height: 94vh; }
+  dialog::backdrop { background: rgba(6, 6, 6, .92); }
+  dialog img { display: block; max-width: 100%; max-height: 88vh; width: auto; height: auto; margin: 0 auto; border-radius: 8px; }
+  dialog .cap { text-align: center; color: #ddd; font: 500 13px/1.4 var(--mono); padding: 10px; }
+  dialog form { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); right: 12px; }
+  dialog form button { font: 700 13px/1 var(--mono); padding: 10px 14px; border: 0; border-radius: 4px; background: var(--text); color: var(--asphalt); cursor: pointer; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+  /* ---------- +1: WordPress ---------- */
+  .wp-procon { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .wp-col { background: var(--graphite); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; gap: 14px; align-content: start; }
+  .wp-col h3 { display: flex; align-items: center; gap: 10px; }
+  .wp-col h3 i { font-style: normal; width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center; font: 800 15px/1 var(--mono); }
+  .wp-col.pro h3 i { background: rgba(63, 191, 127, .16); color: #57d192; }
+  .wp-col.con h3 i { background: var(--orange-soft, rgba(252,57,5,.14)); color: var(--orange); }
+  .wp-col ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  .wp-col li { display: grid; gap: 2px; border-top: 1px solid var(--line); padding-top: 12px; }
+  .wp-col li:first-child { border-top: 0; padding-top: 0; }
+  .wp-col li strong { font-size: 15.5px; }
+  .wp-col li span { color: var(--muted); font-size: 14.5px; line-height: 1.45; }
+  .wp-table-wrap { overflow-x: auto; margin-top: 26px; }
+  .wp-table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+  .wp-table th, .wp-table td { text-align: left; padding: 12px 14px 12px 0; border-top: 1px solid var(--line); vertical-align: top; }
+  .wp-table thead th { border-top: 0; font: 700 11px/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .wp-table thead th:nth-child(2) { color: var(--orange); }
+  .wp-table tbody th { font-weight: 600; color: var(--muted); width: 26%; }
+  .wp-verdict { margin-top: 26px; display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; border-left: 2px solid var(--orange); padding-left: 18px; }
+  .wp-verdict .price { font: 800 italic 30px/1 var(--display); font-stretch: 125%; white-space: nowrap; }
+  .wp-verdict .price small { display: block; margin-top: 6px; font: 500 12px/1.3 var(--mono); font-style: normal; color: var(--muted); letter-spacing: 0; }
+  .wp-verdict p { color: #d9d5ce; }
+  @media (max-width: 820px) { .wp-procon { grid-template-columns: 1fr; } .wp-verdict { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Комерційна пропозиція · motoshop.ua</div>
+    <h1 style="margin-top:22px">Сайт, що продає<br><em>мотоцикли,</em> а не гортається</h1>
+    <p class="lede">Редизайн головної, категорій і сторінок товару motoshop.ua без переїзду з Хорошопу, без зміни адмінки й без ризику для SEO. Нижче — реальні скріншоти вашого сайту до і після: робоча версія вже зібрана й перевірена на десктопі та смартфоні.</p>
+    <div class="facts">
+      <div class="fact"><b class="num">−71<span>%</span></b><small>довжина сторінки товару: 14 599 → 4 183 px</small></div>
+      <div class="fact"><b>3</b><small>варіанти дизайну на вибір — усі на тому самому сайті</small></div>
+      <div class="fact"><b>0</b><small>переїздів, змін у каталозі чи адмінці Хорошопу</small></div>
+      <div class="fact"><b>1 <span>хв</span></b><small>на відкат: прибрати два рядки коду в налаштуваннях</small></div>
+    </div>
+  </div>
+</header>
+
+<section id="do-pislia">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Той самий екран, той самий товар</div>
+      <h2>До і після</h2>
+      <p class="muted">Перетягніть повзунок. Зліва — сторінка KTM 790 DUKE зараз, справа — вона ж після редизайну: ключові цифри поруч із ціною, аргументи під кнопкою «Купити».</p>
+    </header>
+    <div class="compare" style="--pos:50%" data-compare>
+      <img src="shots/prod-0-before.jpg" alt="Сторінка товару зараз: лише ціна і кнопки" width="1440" height="900">
+      <div class="after-wrap"><img src="shots/prod-a-after.jpg" alt="Сторінка товару після: плитки характеристик і блок довіри" width="1440" height="900"></div>
+      <div class="handle"><div class="knob"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div></div>
+      <span class="tag l">Зараз</span><span class="tag r">Після</span>
+      <input type="range" min="0" max="100" value="50" id="cmp-product" aria-label="Порівняти сторінку товару до і після">
+    </div>
+    <div class="compare-row">
+      <div>
+        <div class="compare" style="--pos:50%" data-compare>
+          <img src="shots/home2-0-before.jpg" alt="Головна зараз: другий екран — ще один банер на весь екран" width="1440" height="900">
+          <div class="after-wrap"><img src="shots/home2-a-after.jpg" alt="Головна після: переваги і плитки категорій" width="1440" height="900"></div>
+          <div class="handle"><div class="knob"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div></div>
+          <span class="tag l">Зараз</span><span class="tag r">Після</span>
+          <input type="range" min="0" max="100" value="50" id="cmp-home" aria-label="Порівняти головну до і після">
+        </div>
+        <p class="compare-note">Головна, другий екран: замість ще одного банера — переваги і категорії.</p>
+      </div>
+      <div>
+        <div class="compare" style="--pos:50%" data-compare>
+          <img src="shots/cat-0-before.jpg" alt="Категорія зараз" width="1440" height="900">
+          <div class="after-wrap"><img src="shots/cat-a-after.jpg" alt="Категорія після: вибір типу і характеристики в картках" width="1440" height="900"></div>
+          <div class="handle"><div class="knob"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></div></div>
+          <span class="tag l">Зараз</span><span class="tag r">Після</span>
+          <input type="range" min="0" max="100" value="50" id="cmp-cat" aria-label="Порівняти категорію до і після">
+        </div>
+        <p class="compare-note">Категорія: тип мотоцикла — одним кліком, к.с. · см³ · кг — прямо в картці.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="problemy">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Що зараз заважає продавати</div>
+      <h2>Гарний сайт, схована інформація</h2>
+      <p class="muted">Стиль у вас сильний — темна естетика, фірмовий помаранчевий, якісні фото. Проблема не в тому, як сайт виглядає, а в тому, де лежить потрібне покупцеві.</p>
+    </header>
+    <ul class="problems">
+      <li><span class="n num">14 599</span><strong>пікселів займає сторінка товару</strong><p>З них 12 500 — опис. Щоб дійти до відгуків і схожих моделей, покупець гортає ~16 екранів.</p></li>
+      <li><span class="n">↓ низ</span><strong>Характеристики сховані під описом</strong><p>Потужність, об'єм, вага — те, за чим обирають мотоцикл — у згорнутому блоці в самому кінці сторінки.</p></li>
+      <li><span class="n">1 екран</span><strong>«Купити» зникає після першого екрана</strong><p>Прочитав опис, захотів купити — треба гортати 12 000 px назад до кнопки.</p></li>
+      <li><span class="n">4-й екран</span><strong>Перший товар на головній</strong><p>Чотири повноекранні банери поспіль. Переваг, брендів і вибору за типом мотоцикла немає.</p></li>
+      <li><span class="n">7 з 20</span><strong>флагманів KTM без характеристик</strong><p>1390 Super Duke RR, Super Adventure S/R, 990 RC R та інші випадають із фільтрів за потужністю й об'ємом.</p></li>
+      <li><span class="n">Trade-in</span><strong>Банер Trade-in веде не туди</strong><p>Банер про обмін мотоцикла відкриває загальний каталог, а не сторінку Trade-in.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="shcho-robymo">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Обсяг робіт</div>
+      <h2>Що змінюється</h2>
+      <p class="muted">Кожна зміна — окремий модуль, який вмикається і вимикається одним рядком. Працює і на десктопі, і в мобільній версії Хорошопу (це окремий шаблон — адаптую обидва).</p>
+    </header>
+    <div class="pages">
+      <article class="page-card">
+        <div class="eyebrow">Головна</div>
+        <h3>Товар — на другому екрані, а не на четвертому</h3>
+        <ul>
+          <li>Смуга переваг: офіційний дилер, гарантія, сервіс, trade-in, доставка</li>
+          <li>Банери 2…4 → компактні плитки категорій</li>
+          <li>«Оберіть свій тип»: дорожні, ендуро, туристичні…</li>
+          <li>Блок офіційних брендів</li>
+          <li>Виправлені посилання банерів</li>
+        </ul>
+      </article>
+      <article class="page-card">
+        <div class="eyebrow">Категорія</div>
+        <h3>Обирати за цифрами, а не за картинкою</h3>
+        <ul>
+          <li>Чіпи типу мотоцикла над сіткою — з кількістю моделей</li>
+          <li>«105 к.с. · 799 см³ · 167 кг» у кожній картці</li>
+          <li>Суцільна шапка, меню в один рядок</li>
+          <li>Картки з фото на «студійній» підкладці</li>
+        </ul>
+      </article>
+      <article class="page-card">
+        <div class="eyebrow">Товар</div>
+        <h3>Ціна, цифри й «Купити» — завжди під рукою</h3>
+        <ul>
+          <li>Плитки ключових характеристик біля ціни</li>
+          <li>Блок довіри: гарантія з даних товару, сервіс, trade-in</li>
+          <li>Характеристики відкриті й вище за опис</li>
+          <li>Довгий опис згорнутий — «Читати повністю»</li>
+          <li>Липка панель «Купити» з ціною і телефоном</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="varianty">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Три напрями дизайну</div>
+      <h2>Оберіть, яким буде MOTOshop</h2>
+      <p class="muted">Усі три варіанти мають однаковий функціонал з попереднього розділу — відрізняється лише візуальна мова. Скріншоти зняті з вашого сайту з увімкненою темою.</p>
+    </header>
+    <div class="tabs" role="tablist" aria-label="Варіанти дизайну">
+      <button role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true" type="button">A · Еволюція</button>
+      <button role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" type="button">B · Night Ride</button>
+      <button role="tab" id="tab-c" aria-controls="panel-c" aria-selected="false" type="button">C · Showroom</button>
+      <button role="tab" id="tab-0" aria-controls="panel-0" aria-selected="false" type="button">Зараз</button>
+    </div>
+
+    <div class="variant" role="tabpanel" id="panel-a" aria-labelledby="tab-a">
+      <div class="variant-head">
+        <div style="display:grid;gap:14px">
+          <h3>Еволюція — ваш стиль, доведений до ладу</h3>
+          <p class="muted">Зберігаю все, що впізнають клієнти: темну шапку, фірмовий помаранчевий, курсивні заголовки. Прибираю хаос: сірі плашки меню, переноси слів, різні стилі заголовків.</p>
+          <div class="swatches"><i style="background:#111"></i><i style="background:#fc3905"></i><i style="background:#f5f5f5"></i><span>темна шапка · світлий контент</span></div>
+        </div>
+        <div class="who"><b>Кому підходить</b>Найменший ризик: постійні клієнти не помітять «чужого» сайту, а покупці отримають усі функціональні покращення.</div>
+      </div>
+      <div class="gallery">
+        <figure><button type="button" data-cap="A · Головна, перший екран"><img src="shots/home-a-after.jpg" alt="Варіант A, головна, перший екран" loading="lazy" width="1440" height="900"></button><figcaption>Головна · перший екран</figcaption></figure>
+        <figure><button type="button" data-cap="A · Головна, другий екран"><img src="shots/home2-a-after.jpg" alt="Варіант A, головна" loading="lazy" width="1440" height="900"></button><figcaption>Головна · другий екран</figcaption></figure>
+        <figure><button type="button" data-cap="A · Категорія"><img src="shots/cat-a-after.jpg" alt="Варіант A, категорія" loading="lazy" width="1440" height="900"></button><figcaption>Категорія</figcaption></figure>
+        <figure><button type="button" data-cap="A · Товар"><img src="shots/prod-a-after.jpg" alt="Варіант A, товар" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
+        <figure class="phone"><button type="button" data-cap="A · Товар, смартфон"><img src="shots/prod-m-a-after.jpg" alt="Варіант A, товар на смартфоні" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="variant" role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>
+      <div class="variant-head">
+        <div style="display:grid;gap:14px">
+          <h3>Night Ride — повністю темний сайт</h3>
+          <p class="muted">Графіт замість білого, як на сайтах KTM і Husqvarna. Мотоцикли стоять на світлих «студійних» підкладках і світяться на темному тлі. Помаранчевий — лише для дій.</p>
+          <div class="swatches"><i style="background:#0c0c0c"></i><i style="background:#1d1d1d"></i><i style="background:#fc3905"></i><i style="background:#efefed"></i><span>графіт · студійні підкладки</span></div>
+        </div>
+        <div class="who"><b>Кому підходить</b>Найсильніший вау-ефект і відчуття преміального дилерського салону. Найбільше відрізняється від нинішнього сайту.</div>
+      </div>
+      <div class="gallery">
+        <figure><button type="button" data-cap="B · Головна, перший екран"><img src="shots/home-b-after.jpg" alt="Варіант B, головна, перший екран" loading="lazy" width="1440" height="900"></button><figcaption>Головна · перший екран</figcaption></figure>
+        <figure><button type="button" data-cap="B · Головна, другий екран"><img src="shots/home2-b-after.jpg" alt="Варіант B, головна" loading="lazy" width="1440" height="900"></button><figcaption>Головна · другий екран</figcaption></figure>
+        <figure><button type="button" data-cap="B · Категорія"><img src="shots/cat-b-after.jpg" alt="Варіант B, категорія" loading="lazy" width="1440" height="900"></button><figcaption>Категорія</figcaption></figure>
+        <figure><button type="button" data-cap="B · Товар"><img src="shots/prod-b-after.jpg" alt="Варіант B, товар" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
+        <figure class="phone"><button type="button" data-cap="B · Товар, смартфон"><img src="shots/prod-m-b-after.jpg" alt="Варіант B, товар на смартфоні" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="variant" role="tabpanel" id="panel-c" aria-labelledby="tab-c" hidden>
+      <div class="variant-head">
+        <div style="display:grid;gap:14px">
+          <h3>Showroom — світлий преміальний салон</h3>
+          <p class="muted">Багато повітря, тонкі лінії, спокійні заголовки без капсу. Світла шапка, кнопки-пігулки, картки з м'якою тінню. Фото мотоциклів — головні герої.</p>
+          <div class="swatches"><i style="background:#ffffff"></i><i style="background:#f5f4f1"></i><i style="background:#141414"></i><i style="background:#fc3905"></i><span>біле тло · теплий сірий</span></div>
+        </div>
+        <div class="who"><b>Кому підходить</b>Ширша аудиторія: скутери, дитячий транспорт, екіпірування. Сайт читається легше і виглядає «дорожче» для новачків.</div>
+      </div>
+      <div class="gallery">
+        <figure><button type="button" data-cap="C · Головна, перший екран"><img src="shots/home-c-after.jpg" alt="Варіант C, головна, перший екран" loading="lazy" width="1440" height="900"></button><figcaption>Головна · перший екран</figcaption></figure>
+        <figure><button type="button" data-cap="C · Головна, другий екран"><img src="shots/home2-c-after.jpg" alt="Варіант C, головна" loading="lazy" width="1440" height="900"></button><figcaption>Головна · другий екран</figcaption></figure>
+        <figure><button type="button" data-cap="C · Категорія"><img src="shots/cat-c-after.jpg" alt="Варіант C, категорія" loading="lazy" width="1440" height="900"></button><figcaption>Категорія</figcaption></figure>
+        <figure><button type="button" data-cap="C · Товар"><img src="shots/prod-c-after.jpg" alt="Варіант C, товар" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
+        <figure class="phone"><button type="button" data-cap="C · Товар, смартфон"><img src="shots/prod-m-c-after.jpg" alt="Варіант C, товар на смартфоні" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="variant" role="tabpanel" id="panel-0" aria-labelledby="tab-0" hidden>
+      <div class="variant-head">
+        <div style="display:grid;gap:14px">
+          <h3>Зараз — для порівняння</h3>
+          <p class="muted">Ті самі екрани без змін.</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure><button type="button" data-cap="Зараз · Головна, перший екран"><img src="shots/home-0-before.jpg" alt="Головна зараз, перший екран" loading="lazy" width="1440" height="900"></button><figcaption>Головна · перший екран</figcaption></figure>
+        <figure><button type="button" data-cap="Зараз · Головна, другий екран"><img src="shots/home2-0-before.jpg" alt="Головна зараз" loading="lazy" width="1440" height="900"></button><figcaption>Головна · другий екран</figcaption></figure>
+        <figure><button type="button" data-cap="Зараз · Категорія"><img src="shots/cat-0-before.jpg" alt="Категорія зараз" loading="lazy" width="1440" height="900"></button><figcaption>Категорія</figcaption></figure>
+        <figure><button type="button" data-cap="Зараз · Товар"><img src="shots/prod-0-before.jpg" alt="Товар зараз" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
+        <figure class="phone"><button type="button" data-cap="Зараз · Товар, смартфон"><img src="shots/prod-m-0-before.jpg" alt="Товар на смартфоні зараз" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="yak-pratsiuie">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Без переїзду й ризику</div>
+      <h2>Як це працює</h2>
+      <p class="muted">Хорошоп дозволяє підключати власний код до всіх сторінок. Я не чіпаю каталог, ціни, замовлення й SEO-налаштування — лише те, як сторінки виглядають і що на них видно.</p>
+    </header>
+    <div class="how">
+      <div><h3>Хорошоп лишається</h3><p>Та сама адмінка, ті самі менеджери, інтеграції й оплата. Ніякого перенесення товарів.</p></div>
+      <div><h3>SEO без змін</h3><p>URL, тексти й мета-теги не змінюються. Додаю лише інтерфейс поверх наявних сторінок.</p></div>
+      <div><h3>Відкат за хвилину</h3><p>Весь редизайн — два рядки в налаштуваннях. Прибрати їх — і сайт такий, як був.</p></div>
+      <div><h3>Код під контролем</h3><p>Усе в репозиторії з історією змін. Кожен модуль вмикається окремо — можна запускати поступово.</p></div>
+    </div>
+    <div class="snippet" aria-label="Приклад підключення">
+      <pre><span class="c">&lt;!-- Хорошоп → Налаштування → Загальні налаштування → Скрипти --&gt;</span>
+&lt;link rel="stylesheet" href="https://link.motoshop.ua/siteScript/<span class="o">ms-custom.css</span>"&gt;
+&lt;script src="https://link.motoshop.ua/siteScript/<span class="o">ms-custom.js</span>" defer&gt;&lt;/script&gt;</pre>
+    </div>
+  </div>
+</section>
+
+<section id="etapy">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Етапи</div>
+      <h2>Від вибору до запуску</h2>
+    </header>
+    <ol class="steps">
+      <li class="done"><h3>Аудит і прототип</h3><p>Розбір головної, категорій і товару готовий, робоча версія зібрана на копії сайту. Результат — на цій сторінці.</p></li>
+      <li><h3>Вибір варіанту</h3><p>Ви обираєте A, B або C. Разом узгоджуємо тексти переваг і блоку довіри.</p></li>
+      <li><h3>Доводка</h3><p>Проходжу решту сторінок каталогу, всі категорії й типи товарів, десктоп і смартфони.</p></li>
+      <li><h3>Запуск</h3><p>Підключаю код у Хорошопі, перевіряю замовлення, кошик, аналітику.</p></li>
+      <li><h3>Супровід</h3><p>Стежу за роботою після оновлень Хорошопу, виправляю, додаю модулі.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="pakety">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Пакети</div>
+      <h2>Вартість</h2>
+    </header>
+    <div class="plans">
+      <article class="plan">
+        <div><div class="eyebrow">Старт</div><h3 style="margin-top:10px">Швидкі покращення</h3></div>
+        <div class="price" data-price="start">10 000 ₴<small>фіксована вартість</small></div>
+        <ul>
+          <li>Варіант A · Еволюція</li>
+          <li>Сторінка товару: цифри біля ціни, блок довіри, липка «Купити», згорнутий опис</li>
+          <li>Категорія: чіпи типу, нова шапка й меню</li>
+          <li>Десктоп і мобільна версія</li>
+        </ul>
+        <div class="for">Щоб швидко прибрати головні бар'єри покупки.</div>
+      </article>
+      <article class="plan featured">
+        <div><div class="eyebrow">Редизайн</div><h3 style="margin-top:10px">Повний редизайн</h3></div>
+        <div class="price" data-price="full">25 000 ₴<small>фіксована вартість</small></div>
+        <ul>
+          <li>Будь-який варіант: A, B або C</li>
+          <li>Головна, усі категорії, усі сторінки товару</li>
+          <li>Характеристики в картках каталогу (серверний модуль)</li>
+          <li>Виправлення посилань банерів і рекомендації щодо контенту</li>
+          <li>Десктоп і мобільна версія, перевірка кошика й аналітики</li>
+        </ul>
+        <div class="for">Оптимально: весь сайт в одному стилі й з усіма модулями.</div>
+      </article>
+      <article class="plan">
+        <div><div class="eyebrow">Редизайн + супровід</div><h3 style="margin-top:10px">Сайт, що росте</h3></div>
+        <div class="price" data-price="support">25 000 ₴<small>+ від 3 000 ₴/міс за супровід</small></div>
+        <ul>
+          <li>Усе з пакета «Редизайн»</li>
+          <li>Контроль після кожного оновлення Хорошопу</li>
+          <li>Нові модулі: порівняння моделей, калькулятор кредиту</li>
+          <li>Сезонні банери й акції у новому стилі</li>
+        </ul>
+        <div class="for">Для постійного розвитку без найму розробника в штат.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="wordpress">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">+1 варіант · альтернатива</div>
+      <h2>Переїзд на WordPress</h2>
+      <p class="muted">Якщо Хорошоп стане тісним, магазин можна перенести на WordPress + WooCommerce із власною темою. Це вже не надбудова над платформою, а новий сайт: повна свобода, але більше роботи, ризиків і відповідальності.</p>
+    </header>
+    <div class="wp-procon">
+      <div class="wp-col pro">
+        <h3><i>+</i>Переваги</h3>
+        <ul>
+          <li><strong>Повна свобода дизайну</strong><span>Верстка з нуля: будь-які сторінки й блоки, без обмежень шаблону Хорошопу.</span></li>
+          <li><strong>Сайт і дані — ваші</strong><span>Власний код і база, без прив'язки до платформи й її тарифів.</span></li>
+          <li><strong>Будь-які модулі нативно</strong><span>Порівняння моделей, конфігуратор, калькулятор кредиту, запис на тест-драйв — без обхідних рішень.</span></li>
+          <li><strong>Екосистема плагінів</strong><span>Фільтри, CRM, 1С, фіди Rozetka і Prom, e-mail-розсилки — готові рішення.</span></li>
+          <li><strong>Швидкість під контролем</strong><span>Кешування, CDN, оптимізація зображень налаштовуються саме під ваш сайт.</span></li>
+          <li><strong>Без абонплати платформі</strong><span>Платите за хостинг і ліцензії плагінів, а не за тариф магазину.</span></li>
+        </ul>
+      </div>
+      <div class="wp-col con">
+        <h3><i>−</i>Недоліки</h3>
+        <ul>
+          <li><strong>Переїзд каталогу</strong><span>Товари, характеристики, фото, фільтри, SEO-лендинги і три мови сайту (UA / RU / EN).</span></li>
+          <li><strong>Ризик для SEO</strong><span>Потрібні 301-редиректи з усіх старих адрес. Тимчасова просадка позицій можлива навіть за правильного переїзду.</span></li>
+          <li><strong>Інтеграції заново</strong><span>Нова пошта, онлайн-оплата, SMS, фіди, 1С — налаштування плагінів і перевірка кожної.</span></li>
+          <li><strong>Оновлення й безпека — на вас</strong><span>WordPress і плагіни треба регулярно оновлювати. Без супроводу сайт з часом стає вразливим.</span></li>
+          <li><strong>Нова адмінка</strong><span>Менеджерам доведеться звикати до WooCommerce замість Хорошопу.</span></li>
+          <li><strong>Довше й дорожче</strong><span>Тижні роботи замість кількох днів, окремий бюджет на хостинг і ліцензії.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wp-table-wrap">
+      <table class="wp-table">
+        <thead><tr><th scope="col"></th><th scope="col">Редизайн на Хорошопі</th><th scope="col">Переїзд на WordPress</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Свобода дизайну</th><td>у межах шаблону платформи</td><td>повна</td></tr>
+          <tr><th scope="row">Переїзд каталогу</th><td>не потрібен</td><td>потрібен, з трьома мовами</td></tr>
+          <tr><th scope="row">Ризик для SEO</th><td>немає — URL не змінюються</td><td>є, керований редиректами</td></tr>
+          <tr><th scope="row">Відкат</th><td>1 хвилина</td><td>складний</td></tr>
+          <tr><th scope="row">Оновлення платформи</th><td>робить Хорошоп</td><td>на вас або на супроводі</td></tr>
+          <tr><th scope="row">Щомісячні витрати</th><td>тариф Хорошопу</td><td>хостинг + ліцензії + супровід</td></tr>
+          <tr><th scope="row">Вартість робіт</th><td>10 000 – 25 000 ₴</td><td>90 000 – 140 000 ₴</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wp-verdict">
+      <div class="price">90 000 – 140 000 ₴<small>+ хостинг, ліцензії, супровід від 4 000 ₴/міс</small></div>
+      <p><strong>Моя рекомендація:</strong> почати з редизайну на Хорошопі — він швидший, дешевший і не несе ризику для SEO. До WordPress варто переходити, коли знадобиться функціонал, якого платформа не дає, — і тоді всі напрацювання з редизайну (дизайн, модулі, тексти) перейдуть у нову тему.</p>
+    </div>
+  </div>
+</section>
+
+<section id="vid-vas">
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">Що потрібно від вас</div>
+      <h2>Три речі для старту</h2>
+    </header>
+    <div class="needs">
+      <div><h3>Доступ до «Скриптів»</h3><p>Роль менеджера в адмінці Хорошопу з доступом до розділу «Налаштування → Скрипти».</p></div>
+      <div><h3>Місце на link.motoshop.ua</h3><p>Папка для файлів редизайну і PHP-модуля — сервер у вас уже є.</p></div>
+      <div><h3>Дані 7 флагманів</h3><p>Заповнити потужність, об'єм, вагу для моделей KTM без характеристик — підкажу, де саме.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="eyebrow">Наступний крок</div>
+    <h2>Оберіть варіант —<br>далі справа за мною</h2>
+    <p class="muted">Покажу будь-який із трьох варіантів наживо на копії вашого сайту — з вашими товарами, цінами й кошиком.</p>
+    <div class="choices"><span><b>A</b> Еволюція</span><span><b>B</b> Night Ride</span><span><b>C</b> Showroom</span></div>
+  </div>
+</section>
+
+<footer class="end">
+  <div class="wrap">Скріншоти зняті з копії motoshop.ua у вересні 2026 року: десктоп 1440 px, смартфон 390 px. Функціонал однаковий у всіх трьох варіантах.</div>
+</footer>
+
+<dialog id="lightbox" aria-label="Скріншот">
+  <form method="dialog"><button type="submit">Закрити ✕</button></form>
+  <img alt="">
+  <div class="cap"></div>
+</dialog>
+
+<script>
+  (function () {
+    // повзунки до/після
+    document.querySelectorAll('[data-compare]').forEach(function (box) {
+      var r = box.querySelector('input[type=range]');
+      function set() { box.style.setProperty('--pos', r.value + '%'); }
+      r.addEventListener('input', set); set();
+    });
+    // вкладки варіантів
+    var tabs = [].slice.call(document.querySelectorAll('[role=tab]'));
+    function select(t) {
+      tabs.forEach(function (x) {
+        var on = x === t;
+        x.setAttribute('aria-selected', on ? 'true' : 'false');
+        x.tabIndex = on ? 0 : -1;
+        document.getElementById(x.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+        select(n); n.focus();
+      });
+    });
+    var h = (location.hash || '').slice(1);
+    var fromHash = tabs.filter(function (t) { return t.id === 'tab-' + h; })[0];
+    if (fromHash) select(fromHash);
+    // лайтбокс
+    var dlg = document.getElementById('lightbox'), img = dlg.querySelector('img'), cap = dlg.querySelector('.cap');
+    document.querySelectorAll('.gallery button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var s = b.querySelector('img');
+        img.src = s.getAttribute('src'); img.alt = s.alt; cap.textContent = b.getAttribute('data-cap') || '';
+        if (dlg.showModal) dlg.showModal();
+      });
+    });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  })();
+</script>
+
+</body>
+</html>
