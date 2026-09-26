@@ -1,0 +1,263 @@
+/*!
+ * MOTOshop.UA — кастомні стилі поверх теми Хорошоп (+ client.css агенції).
+ * Підключення: Налаштування → Загальні налаштування → Скрипти → «всередину тега <head>»
+ *   <link rel="stylesheet" href="https://link.motoshop.ua/siteScript/ms-custom.css">
+ * Усі нові блоки мають префікс .ms-, тож не конфліктують з темою.
+ */
+
+:root {
+  --ms-brand: var(--brand, #FC3905);
+  --ms-brand-dark: #d92f00;
+  --ms-ink: #111;
+  --ms-ink-2: #2a2a2a;
+  --ms-muted: #6b6b6b;
+  --ms-line: #e8e8e8;
+  --ms-surface: #f5f5f5;
+  --ms-ok: #17b260;
+  --ms-radius: 12px;
+  --ms-gutter: 60px;
+  --ms-head: "HalvarBreit", "Montserrat", sans-serif;
+  --ms-shadow: 0 10px 30px rgba(17, 17, 17, .08);
+}
+@media (max-width: 1024px) { :root { --ms-gutter: 24px; } }
+@media (max-width: 640px)  { :root { --ms-gutter: 16px; } }
+
+.ms-hidden { display: none !important; }
+.ms-wrap { max-width: 1600px; margin: 0 auto; padding: 0 var(--ms-gutter); box-sizing: border-box; }
+.ms-ico { width: 24px; height: 24px; flex: none; }
+.ms-h2 {
+  margin: 0 0 24px; font-family: var(--ms-head); font-weight: 700; font-style: italic;
+  text-transform: uppercase; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.1; color: var(--ms-ink);
+}
+
+/* ---------------------------------------------------------------------------
+   ШАПКА НА ВНУТРІШНІХ СТОРІНКАХ
+   Напівпрозорий #111 на білому фоні дає «брудно-сірий» колір, а меню-плашки
+   переносять слова в 2 рядки («Trade- / in»). Робимо суцільну темну шапку
+   і текстову навігацію з підкресленням.
+   --------------------------------------------------------------------------- */
+.ms-desktop:not(.ms-page-home) .header__middle { background: var(--ms-ink); backdrop-filter: none; }
+.ms-desktop:not(.ms-page-home) .header__bottom {
+  background: var(--ms-ink); padding: 0; border-top: 1px solid rgba(255,255,255,.08);
+}
+.ms-desktop:not(.ms-page-home) .products-menu__title-link {
+  background: transparent !important; backdrop-filter: none; border-radius: 0;
+  padding: 16px clamp(6px, .9vw, 14px); font-size: clamp(12px, .95vw, 14px); font-weight: 600;
+  white-space: nowrap; position: relative;
+}
+.ms-desktop:not(.ms-page-home) .products-menu__title-link::after {
+  content: ""; position: absolute; left: clamp(6px, .9vw, 14px); right: clamp(6px, .9vw, 14px); bottom: 8px; height: 2px;
+  background: var(--ms-brand); transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.ms-desktop:not(.ms-page-home) .products-menu__title-link br { display: none; }
+.ms-desktop:not(.ms-page-home) .products-menu__title-link:hover::after,
+.ms-desktop:not(.ms-page-home) .products-menu__item.__active .products-menu__title-link::after { transform: scaleX(1); }
+.ms-desktop:not(.ms-page-home) .products-menu__item.__active .products-menu__title-link { color: #fff !important; }
+.ms-desktop .products-menu__title-link { white-space: nowrap; }
+/* Головна: те саме текстове меню в один рядок поверх hero (було — сірі плашки з переносами) */
+.ms-desktop.ms-page-home .header__bottom { background: rgba(17, 17, 17, .7); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,.08); padding: 0; }
+.ms.ms-desktop.ms-page-home .products-menu .products-menu__title-link {
+  background: transparent !important; backdrop-filter: none; border-radius: 0; color: #fff !important;
+  padding: 16px clamp(6px, .9vw, 14px); font-size: clamp(12px, .95vw, 14px); font-weight: 600; white-space: nowrap; position: relative;
+}
+.ms.ms-desktop.ms-page-home .products-menu__title-link br { display: none; }
+.ms.ms-desktop.ms-page-home .products-menu__title-link::after {
+  content: ""; position: absolute; left: clamp(6px, .9vw, 14px); right: clamp(6px, .9vw, 14px); bottom: 8px; height: 2px;
+  background: var(--ms-brand); transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.ms.ms-desktop.ms-page-home .products-menu__title-link:hover::after { transform: scaleX(1); }
+
+/* ---------------------------------------------------------------------------
+   ГОЛОВНА
+   --------------------------------------------------------------------------- */
+/* Hero: темний градієнт під текстом — заголовок читається на будь-якому фото */
+.ms-page-home main .banners .bannerMagic-layout { position: relative; }
+.ms-page-home main .banners .bannerMagic-layout::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.35) 45%, rgba(0,0,0,0) 70%),
+              linear-gradient(0deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 35%);
+}
+.ms-page-home main .banners .bannerMagic { position: relative; z-index: 1; }
+.ms-mobile.ms-page-home main .banners .bannerMagic-layout::before { background: linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.2) 60%, rgba(0,0,0,0) 100%); }
+.ms-desktop.ms-page-home main .banners--cover:first-child .banners__container { max-height: 86vh; overflow: hidden; }
+
+/* Переваги */
+.ms-usp { background: var(--ms-ink); color: #fff; }
+.ms-usp__list {
+  list-style: none; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; padding-top: 28px; padding-bottom: 28px;
+}
+.ms-usp__item { display: flex; gap: 14px; align-items: flex-start; padding: 0 20px; border-left: 1px solid rgba(255,255,255,.12); }
+.ms-usp__item:first-child { border-left: 0; padding-left: 0; }
+.ms-usp__item .ms-ico { color: var(--ms-brand); width: 30px; height: 30px; }
+.ms-usp__item b { display: block; font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.ms-usp__item small { display: block; font-size: 13px; line-height: 1.35; color: rgba(255,255,255,.62); }
+@media (max-width: 1100px) {
+  .ms-usp .ms-usp__list { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--ms-gutter); gap: 12px; padding: 18px var(--ms-gutter); scrollbar-width: none; }
+  .ms-usp__list::-webkit-scrollbar { display: none; }
+  .ms-usp__item { flex: 0 0 74%; max-width: 280px; scroll-snap-align: start; border: 1px solid rgba(255,255,255,.12); border-radius: var(--ms-radius); padding: 14px; }
+  .ms-usp__item:first-child { padding-left: 14px; border-left: 1px solid rgba(255,255,255,.12); }
+}
+
+/* Плитки категорій замість трьох повноекранних банерів */
+.ms-tiles { padding: 56px 0 8px; }
+.ms-tiles__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.ms-tile {
+  position: relative; display: block; aspect-ratio: 4 / 3; border-radius: var(--ms-radius);
+  overflow: hidden; color: #fff !important; text-decoration: none !important; background: var(--ms-ink);
+  isolation: isolate;
+}
+.ms-tile__img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s cubic-bezier(.2,.7,.2,1); z-index: -1; }
+.ms-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,.75), rgba(0,0,0,0) 55%); z-index: -1; }
+.ms-tile:hover .ms-tile__img { transform: scale(1.05); }
+.ms-tile__body { position: absolute; left: 24px; right: 24px; bottom: 22px; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.ms-tile__title { font-family: var(--ms-head); font-weight: 700; font-style: italic; text-transform: uppercase; font-size: clamp(20px, 2vw, 30px); line-height: 1.05; }
+.ms-tile__more {
+  width: 48px; height: 48px; border-radius: 50%; background: var(--ms-brand); display: grid; place-items: center; flex: none;
+  transition: transform .25s;
+}
+.ms-tile:hover .ms-tile__more { transform: translateX(4px); }
+@media (max-width: 640px) { .ms-tiles { padding-top: 32px; } .ms-tiles__grid { gap: 12px; } .ms-tile { aspect-ratio: 16 / 10; } }
+
+/* Чіпи (головна + категорія) */
+.ms-types { padding: 56px 0 8px; }
+.ms-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.ms-chip {
+  display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px;
+  border: 1px solid var(--ms-line); border-radius: 999px; background: #fff;
+  color: var(--ms-ink) !important; font-size: 14px; font-weight: 600; text-decoration: none !important;
+  transition: border-color .2s, background .2s, color .2s; white-space: nowrap;
+}
+.ms-chip sup { font-size: 11px; color: var(--ms-muted); font-weight: 500; top: 0; }
+.ms-chip:hover { border-color: var(--ms-ink); }
+.ms-chip.is-active, .ms-chip--accent { background: var(--ms-brand); border-color: var(--ms-brand); color: #fff !important; }
+.ms-chip.is-active sup { color: rgba(255,255,255,.8); }
+.ms-chip--accent .ms-ico { width: 18px; height: 18px; }
+.ms-chip--accent:hover { background: var(--ms-brand-dark); border-color: var(--ms-brand-dark); }
+@media (max-width: 640px) {
+  .ms-chips { flex-wrap: nowrap; overflow-x: auto; margin: 0 calc(var(--ms-gutter) * -1); padding: 0 var(--ms-gutter) 4px; scrollbar-width: none; }
+  .ms-chips::-webkit-scrollbar { display: none; }
+}
+
+/* Бренди */
+.ms-brands { padding: 48px 0 56px; }
+.ms-brands__row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+.ms-brand {
+  display: grid; place-items: center; height: 110px; border-radius: var(--ms-radius); background: var(--ms-surface);
+  transition: background .2s, transform .2s;
+}
+.ms-brand img { width: 72px; height: 72px; object-fit: contain; border-radius: 8px; }
+.ms-brand:hover { background: #fff; box-shadow: var(--ms-shadow); transform: translateY(-2px); }
+@media (max-width: 640px) { .ms-brands__row { grid-template-columns: repeat(3, 1fr); } .ms-brand { height: 84px; } .ms-brand img { width: 56px; height: 56px; } }
+
+/* Заголовки секцій головної — один стиль з рештою сайту */
+.ms-page-home .front-news .h2, .ms-page-home .front-news .h2 a,
+.ms-page-home .top-reviews .h2,
+.ms-page-home .promo .catalogTabs-nav-a {
+  color: var(--ms-ink); text-align: left;
+  font-family: var(--ms-head); font-weight: 700; font-style: italic; text-transform: uppercase; font-size: clamp(22px, 2.4vw, 34px);
+}
+
+/* ---------------------------------------------------------------------------
+   КАРТКИ ТОВАРІВ (каталог + вітрини)
+   --------------------------------------------------------------------------- */
+.ms-desktop .catalogCard-image-i { background: var(--ms-surface); border-radius: 10px; }
+.ms-desktop .catalogCard-img { mix-blend-mode: multiply; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+.ms-desktop .catalogCard:hover .catalogCard-img { transform: scale(1.04); }
+.ms-desktop .catalogCard-title a {
+  font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.5em;
+}
+.ms-desktop .catalogCard-price { font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.ms-desktop .catalogCard-availability { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+.ms-desktop .catalogCard-availability::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+/* Характеристики в картці (з link.motoshop.ua) */
+.ms-cardspecs { display: flex; flex-wrap: wrap; gap: 4px 0; margin: 6px 0 2px; min-height: 18px; font-size: 13px; color: var(--ms-muted); }
+.ms-cardspecs span { white-space: nowrap; }
+.ms-cardspecs span + span::before { content: "·"; margin: 0 7px; color: #bbb; }
+
+/* Категорія: чіпи над сіткою */
+.ms-chips--catalog { margin: 4px 0 24px; }
+
+/* ---------------------------------------------------------------------------
+   ТОВАР
+   --------------------------------------------------------------------------- */
+/* Ключові характеристики */
+.ms-specs { margin: 8px 0 20px; }
+.ms-specs__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; }
+.ms-spec { background: var(--ms-surface); border-radius: 10px; padding: 12px 14px; }
+.ms-spec b { display: block; font-size: 20px; font-weight: 800; line-height: 1.1; color: var(--ms-ink); white-space: nowrap; }
+.ms-spec b small { font-size: 12px; font-weight: 600; margin-left: 4px; color: var(--ms-muted); }
+.ms-spec span { display: block; margin-top: 4px; font-size: 12px; color: var(--ms-muted); }
+.ms-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; padding: 0; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 14px; font-weight: 600; color: var(--ms-ink); border-bottom: 1px solid currentColor;
+}
+.ms-link .ms-ico { width: 16px; height: 16px; }
+.ms-link:hover { color: var(--ms-brand); }
+
+/* Блок довіри */
+.ms-trust { list-style: none; margin: 16px 0 24px; padding: 16px 18px; border: 1px solid var(--ms-line); border-radius: var(--ms-radius); display: grid; gap: 12px; }
+.ms-trust li, .ms-trust a { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--ms-ink-2); text-decoration: none; }
+.ms-trust a:hover span { color: var(--ms-brand); text-decoration: underline; }
+.ms-trust .ms-ico { color: var(--ms-brand); width: 22px; height: 22px; }
+.ms-desktop .ms-trust { max-width: 560px; }
+
+/* Акордеон «Відео / Доставка / Характеристики / Відгуки» */
+.ms-page-product details.product__group-item { border-bottom: 1px solid var(--ms-line); }
+.ms-page-product details.product__group-item > summary { cursor: pointer; }
+.ms-page-product .product-features__row:nth-child(odd) { background: var(--ms-surface); }
+.ms-page-product .product-features__cell { padding: 10px 14px; }
+.ms-page-product .product-features__cell--h, .ms-page-product .product-features__data--h { color: var(--ms-muted); }
+
+/* Згортання довгого опису */
+.ms-collapse { position: relative; max-height: 1100px; overflow: hidden; }
+.ms-collapse::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 180px; pointer-events: none;
+  background: linear-gradient(rgba(255,255,255,0), #fff);
+}
+.ms-collapse.is-open { max-height: none; }
+.ms-collapse.is-open::after { display: none; }
+.ms-collapse__btn {
+  display: flex; margin: 16px auto 40px; height: 52px; padding: 0 32px; align-items: center;
+  border: 1px solid var(--ms-ink); border-radius: 0; background: #fff; cursor: pointer;
+  font: inherit; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; font-size: 14px;
+  transition: background .2s, color .2s;
+}
+.ms-collapse__btn:hover { background: var(--ms-ink); color: #fff; }
+
+/* Липка панель покупки */
+.ms-sticky {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 998; background: rgba(17,17,17,.96); color: #fff;
+  backdrop-filter: blur(10px); transform: translateY(110%); transition: transform .3s cubic-bezier(.2,.7,.2,1);
+  box-shadow: 0 -8px 24px rgba(0,0,0,.18);
+}
+.ms-sticky.is-visible { transform: none; }
+.ms-sticky__in { display: flex; align-items: center; gap: 16px; max-width: 1600px; margin: 0 auto; padding: 12px var(--ms-gutter); box-sizing: border-box; }
+.ms-sticky__img { width: 72px; height: 48px; object-fit: contain; background: #fff; border-radius: 6px; flex: none; }
+.ms-sticky__info { flex: 1; min-width: 0; }
+.ms-sticky__title { font-weight: 700; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ms-sticky__price { font-size: 20px; font-weight: 800; }
+.ms-sticky__call { display: inline-flex; align-items: center; gap: 8px; color: #fff !important; text-decoration: none !important; font-weight: 600; padding: 0 12px; height: 48px; }
+.ms-sticky__call .ms-ico { color: var(--ms-brand); }
+.ms-sticky__buy {
+  height: 52px; padding: 0 40px; border: 0; background: var(--ms-brand); color: #fff; cursor: pointer;
+  font: inherit; font-weight: 700; font-style: italic; text-transform: uppercase; font-size: 16px; letter-spacing: .02em;
+}
+.ms-sticky__buy:hover { background: var(--ms-brand-dark); }
+.ms-sticky-on #upButton { bottom: 90px; }
+@media (max-width: 767px) {
+  .ms-sticky__in { gap: 10px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
+  .ms-sticky__img, .ms-sticky__call span { display: none; }
+  .ms-sticky__title { font-size: 12px; font-weight: 600; opacity: .8; }
+  .ms-sticky__price { font-size: 17px; }
+  .ms-sticky__call { width: 48px; padding: 0; justify-content: center; border: 1px solid rgba(255,255,255,.2); }
+  .ms-sticky__buy { padding: 0 22px; height: 48px; }
+}
+
+/* Мобільний шаблон: H1 у фірмовому стилі, як на десктопі */
+.ms-mobile h1.heading { font-family: var(--ms-head); font-weight: 700; font-style: italic; text-transform: uppercase; font-size: 24px; line-height: 1.15; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-tile__img, .ms-sticky, .ms-desktop .catalogCard-img { transition: none; }
+}

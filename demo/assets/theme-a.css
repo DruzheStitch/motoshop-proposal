@@ -1,0 +1,13 @@
+/*!
+ * Тема A · Еволюція — найменш ризикований варіант.
+ * Зберігає нинішню естетику сайту (темна шапка, фірмовий помаранчевий, курсивні заголовки HalvarBreit),
+ * а весь вигляд задає ядро (core.css). Тут — лише дрібні доводки.
+ * Підключається ПІСЛЯ core.css.
+ */
+
+/* Кнопка «Замовити швидко» поруч із «Купити» — тонша рамка, щоб не сперечалась з основною дією */
+.ms-desktop .product-order .btn:not(.__special) { border: 1px solid #d0d0d0 !important; }
+.ms-desktop .product-order .btn:not(.__special):hover { border-color: var(--ms-ink) !important; }
+
+/* Футер: заголовки колонок у фірмовому стилі */
+.ms-desktop .footer__heading { font-family: var(--ms-head); font-style: italic; letter-spacing: .01em; }

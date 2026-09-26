@@ -1,0 +1,131 @@
+/*!
+ * Тема C · Showroom — світлий преміальний салон.
+ * Багато повітря, тонкі лінії, спокійна типографіка без агресивного курсиву й капсу,
+ * помаранчевий лише на кнопках дії. Фото мотоциклів — на теплій світло-сірій підкладці.
+ * Підключається ПІСЛЯ core.css.
+ */
+
+:root {
+  --c-bg: #ffffff;
+  --c-soft: #f5f4f1;
+  --c-soft-2: #eeede9;
+  --c-line: #e6e4df;
+  --c-ink: #141414;
+  --c-muted: #6f6c66;
+  --c-radius: 18px;
+  --c-font: "Montserrat", system-ui, sans-serif;
+
+  --ms-surface: var(--c-soft);
+  --ms-line: var(--c-line);
+  --ms-muted: var(--c-muted);
+  --ms-radius: var(--c-radius);
+  --ms-head: var(--c-font);
+  --ms-shadow: 0 12px 40px rgba(20, 20, 20, .08);
+}
+
+body { background: var(--c-bg); }
+
+/* ---------- типографіка: без курсиву й капсу ---------- */
+h1.main-h, .main-h, .product-title, .product-heading__title, .h2, .heading, .catalogTabs-nav-a,
+.ms-h2, .ms-tile__title, .bannerMagic-txt.__size_xl, .product__group-item > summary h2, .footer__heading,
+.ms-page-home .front-news .h2, .ms-page-home .front-news .h2 a, .ms-page-home .top-reviews .h2, .ms-page-home .promo .catalogTabs-nav-a {
+  font-family: var(--c-font) !important; font-style: normal !important; text-transform: none !important;
+  letter-spacing: -.025em !important; font-weight: 700 !important;
+}
+h1.main-h, .product-title { font-size: clamp(30px, 3.2vw, 48px) !important; line-height: 1.08 !important; }
+.bannerMagic-txt.__size_xl { font-size: clamp(36px, 4.4vw, 68px) !important; line-height: 1.02 !important; font-weight: 800 !important; }
+.ms-h2, .ms-page-home .front-news .h2, .ms-page-home .top-reviews .h2, .ms-page-home .promo .catalogTabs-nav-a { font-size: clamp(26px, 2.6vw, 38px) !important; }
+.footer__heading { font-size: 14px !important; letter-spacing: 0 !important; }
+
+/* ---------- шапка (десктоп): світла ---------- */
+.ms-desktop .header__middle, .ms-desktop .header__bottom {
+  background: rgba(255, 255, 255, .96) !important; backdrop-filter: saturate(1.4) blur(12px) !important; color: var(--c-ink);
+}
+.ms-desktop .header__bottom { border-top: 1px solid var(--c-line) !important; border-bottom: 1px solid var(--c-line); }
+/* білий PNG-логотип → темний; hue-rotate повертає помаранчеву смугу після інверсії */
+/* сайт підміняє src на logo-white.png уже після DOMContentLoaded — інвертуємо лише білий файл */
+.ms-desktop .header-logo-img[src*="logo-white"] { filter: invert(1) hue-rotate(180deg) saturate(1.3); }
+.ms-desktop .header__middle, .ms-desktop .header__middle a, .ms-desktop .header__middle button,
+.ms-desktop .phones__item-link, .ms-desktop .currency-selector__button, .ms-desktop .lang-menu__button { color: var(--c-ink) !important; }
+.ms-desktop .header__middle .icon { fill: currentColor; color: var(--c-ink); }
+.ms-desktop .search__input { background: var(--c-soft) !important; border: 1px solid transparent !important; color: var(--c-ink) !important; border-radius: 999px !important; }
+.ms-desktop .search__input:focus { border-color: var(--c-ink) !important; background: #fff !important; }
+.ms-desktop .products-menu__title-link {
+  background: transparent !important; backdrop-filter: none !important; color: var(--c-ink) !important;
+  border-radius: 0 !important; font-size: 14px !important; font-weight: 600 !important; white-space: nowrap; position: relative;
+  padding: 16px clamp(8px, 1vw, 16px) !important; text-transform: none !important;
+}
+.ms-desktop .products-menu__title-link::after {
+  content: ""; position: absolute; left: clamp(8px, 1vw, 16px); right: clamp(8px, 1vw, 16px); bottom: 8px; height: 2px;
+  background: var(--ms-brand); transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.ms-desktop .products-menu__title-link:hover::after, .ms-desktop .products-menu__item.__active .products-menu__title-link::after { transform: scaleX(1); }
+/* ядро фарбує активний пункт у білий правилом з 5 класів — перебиваємо сильнішим */
+.ms.ms-desktop .products-menu .products-menu__item.__active .products-menu__title-link,
+.ms.ms-desktop .products-menu .products-menu__item .products-menu__title-link:hover { color: var(--c-ink) !important; background: transparent !important; }
+.ms-desktop .phones__item-icon, .ms-desktop .phones__item-arrow, .ms-desktop .header__middle .icon { color: var(--c-ink) !important; fill: var(--c-ink) !important; }
+
+/* ---------- кнопки: пігулки ---------- */
+.btn, .btn.__special, .bannerMagic-price-btn, .btn--primary {
+  border-radius: 999px !important; font-style: normal !important; text-transform: none !important; letter-spacing: 0 !important;
+}
+.ms-desktop .product-order .btn, .ms-desktop .catalogCard-extra .btn { height: 56px; line-height: 56px; font-size: 15px; font-weight: 600; padding: 0 30px; }
+.btn.__special, .btn--primary { box-shadow: 0 10px 24px rgba(252, 57, 5, .22); }
+.ms-desktop .product-order .btn:not(.__special) { border: 1px solid var(--c-ink) !important; background: transparent !important; }
+.ms-desktop .product-order .btn:not(.__special):hover { background: var(--c-ink) !important; color: #fff !important; }
+.ms-collapse__btn { border-radius: 999px; text-transform: none; letter-spacing: 0; }
+.ms-sticky__buy { border-radius: 999px; font-style: normal; text-transform: none; font-size: 15px; }
+
+/* ---------- головна ---------- */
+.ms-page-home main .banners .bannerMagic-layout::before {
+  background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.15) 55%, rgba(0,0,0,0) 75%) !important;
+}
+.ms-desktop.ms-page-home main .banners--cover:first-child .banners__container { max-height: 78vh; border-radius: 0 0 28px 28px; }
+.ms-usp { background: var(--c-bg); color: var(--c-ink); border-bottom: 1px solid var(--c-line); }
+.ms-usp__item { border-left-color: var(--c-line) !important; }
+.ms-usp__item small { color: var(--c-muted); }
+.ms-tile { border-radius: 22px; }
+.ms-tile__more { background: #fff; color: var(--c-ink); }
+.ms-brand { background: #fff; border: 1px solid var(--c-line); }
+.ms-brand:hover { box-shadow: var(--ms-shadow); }
+.top-reviews .review-item { border-radius: var(--c-radius) !important; border-color: var(--c-line) !important; background: var(--c-soft) !important; border: 0 !important; }
+.front-news .entries, .front-news__container { border-color: var(--c-line) !important; border-radius: 22px !important; }
+
+/* ---------- картки товарів ---------- */
+.ms-desktop .catalog-grid__item { border: 0 !important; padding: 8px; box-sizing: border-box; }
+.ms-desktop .catalogCard-main { background: #fff; border: 1px solid var(--c-line) !important; border-radius: var(--c-radius); padding: 10px 10px 14px; transition: box-shadow .25s, border-color .25s; }
+.ms-desktop .catalogCard:hover .catalogCard-main { box-shadow: var(--ms-shadow); border-color: transparent !important; }
+.ms-desktop .catalogCard:hover .catalogCard-extra { background: #fff; border-radius: 0 0 var(--c-radius) var(--c-radius); box-shadow: var(--ms-shadow); }
+.ms-desktop .catalogCard-image-i { background: var(--c-soft) !important; border-radius: 12px; }
+.ms-desktop .catalogCard-title a { font-weight: 600; color: var(--c-ink); }
+.ms-desktop .catalogCard-price { font-weight: 700; }
+.catalog-card { border-radius: var(--c-radius); }
+.catalog-card__view { background: var(--c-soft); border-radius: 14px; }
+
+/* чіпи */
+.ms-chip { background: var(--c-soft); border-color: transparent; }
+.ms-chip:hover { border-color: var(--c-ink); background: #fff; }
+.ms-chip.is-active, .ms-chip--accent { background: var(--c-ink); border-color: var(--c-ink); }
+.ms-chip--accent:hover { background: #000; border-color: #000; }
+
+/* фільтр */
+.filter__dropdown { border-radius: 14px !important; box-shadow: var(--ms-shadow) !important; }
+
+/* ---------- товар ---------- */
+.ms-spec { background: var(--c-soft); border-radius: 14px; }
+.ms-trust { background: var(--c-soft); border: 0; border-radius: var(--c-radius); }
+.product__section--gallery img, .gallery__photo-img { background: var(--c-soft); border-radius: 22px; }
+.ms-page-product details.product__group-item { border-color: var(--c-line); }
+.ms-page-product .product-features__row:nth-child(odd) { background: var(--c-soft) !important; }
+
+/* ---------- футер ---------- */
+.footer { background: var(--c-soft) !important; }
+
+/* ---------- липка панель: світла ---------- */
+.ms-sticky { background: rgba(255, 255, 255, .97); color: var(--c-ink); box-shadow: 0 -10px 30px rgba(20, 20, 20, .10); border-top: 1px solid var(--c-line); }
+.ms-sticky__call { color: var(--c-ink) !important; }
+.ms-sticky__img { background: var(--c-soft); }
+@media (max-width: 767px) { .ms-sticky__call { border-color: var(--c-line); } }
+
+/* ядро фарбує меню головної в білий (під темний hero) — у світлій шапці повертаємо темний текст */
+.ms.ms-desktop.ms-page-home .products-menu .products-menu__item .products-menu__title-link { color: var(--c-ink) !important; }

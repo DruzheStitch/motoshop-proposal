@@ -1,0 +1,183 @@
+/*!
+ * Тема B · Night Ride — повністю темний сайт у дусі KTM.com.
+ * Графітові поверхні, білий текст, помаранчевий лише для дій і акцентів.
+ * Мотоцикли стоять на світлих «студійних» підкладках, щоб фото з білим фоном не виглядали вирізаними.
+ * Підключається ПІСЛЯ core.css.
+ */
+
+:root {
+  --b-bg: #0c0c0c;
+  --b-surface: #151515;
+  --b-surface-2: #1d1d1d;
+  --b-line: #2a2a2a;
+  --b-text: #ececec;
+  --b-muted: #9a9a9a;
+  --b-plate: #efefed;
+
+  /* змінні ядра, які читаються як «поверхня» і «лінія» */
+  --ms-surface: var(--b-surface-2);
+  --ms-line: var(--b-line);
+  --ms-muted: var(--b-muted);
+  --ms-ink-2: #d6d6d6;
+  --ms-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+}
+
+/* ---------- основа ---------- */
+html, body, .container, .main, main { background: var(--b-bg); }
+html, body, button, input, select, textarea { color: var(--b-text); }
+::selection { background: var(--ms-brand); color: #fff; }
+
+/* Текст, якому тема Хорошопа явно задає темний колір (зібрано tools/probe.mjs) */
+main p, main li, main h1, main h2, main h3, main h4, main td, main th, main strong, main a:not(.btn):not(.ms-chip):not(.ms-tile),
+.h2, h1.main-h, .heading, .product-title, .product-heading__title,
+.a-link, .a-pseudo, .link,
+.productsMenu-submenu-t,
+.review-item__name, .review-item__text, .p-rating__name,
+.catalogCard-title a, .catalogCard-price, .catalog-card__price, .catalog-card__title, .catalog-card-specs__value,
+.catalogTabs-nav-a, .checkbox-text, .filter__name, .catalog-sorting__item, .catalog-sorting__selected, .pager__item-text, .pager__counter,
+.product-features__cell, .product-features__cell-title, .product-features__data,
+.product-header__availability, .product-price__item, .product-card__price,
+.comparison-button__text, .favorites-button__text, .user-discount__text,
+.phones__item-link, .currency-selector__link, .lang-menu__link,
+.ktm-feature-description, .ktm-feature-subtitle,
+.text, .text p, .text li, .seo-text, .frontInfo, .frontInfo p {
+  color: var(--b-text);
+}
+.catalogCard-availability, .catalog-card__presence, .presence-status { filter: brightness(1.25); }
+main .text a, .frontInfo a { color: var(--ms-brand) !important; }
+.breadcrumbs, .breadcrumbs a, .breadcrumbs__link, .breadcrumbs-i a { color: var(--b-muted) !important; }
+
+/* ---------- шапка ---------- */
+.header__middle, .header__bottom, .ms-desktop .header__middle { background: rgba(8, 8, 8, .92) !important; }
+.ms-page-home .header__middle { background: rgba(8, 8, 8, .55) !important; }
+.search__input { background: #1f1f1f !important; color: var(--b-text) !important; border-color: #333 !important; }
+.productsMenu-submenu, .products-menu__dropdown, .phones__dropdown, .dropdown, .userbar__dropdown {
+  background: var(--b-surface) !important; border-color: var(--b-line) !important;
+}
+
+/* ---------- кнопки ---------- */
+/* контурні кнопки — лише на десктопі та в блоці покупки мобільного шаблону:
+   на мобільних .btn — це ще й іконки в шапці, панелі фільтра й картках */
+.ms-desktop .btn:not(.__special):not(.btn--primary), .product-card__order .btn:not(.btn--primary) {
+  background: transparent !important; color: var(--b-text) !important; border: 1px solid #3a3a3a !important;
+}
+.ms-desktop .btn:not(.__special):not(.btn--primary):hover { border-color: var(--b-text) !important; }
+.btn:not(.__special):not(.btn--primary) .btn-content, .btn:not(.__special):not(.btn--primary) .btn__text { color: inherit !important; }
+.ms-mobile .btn:not(.btn--primary) { color: var(--b-text) !important; }
+.ms-mobile .btn .icon, .ms-mobile .btn svg { fill: currentColor; }
+.presence-status, .product-header__availability { background: rgba(23, 178, 96, .14) !important; }
+.btn.__special, .btn--primary { box-shadow: 0 8px 24px rgba(252, 57, 5, .25); }
+
+/* ---------- картки товарів ---------- */
+.catalog-grid__item, .catalogCard, .catalogCard-box, .catalogCard-main, .catalogCard-extra {
+  background: transparent !important; border-color: var(--b-line) !important;
+}
+.ms-desktop .catalogCard-main { background: var(--b-surface) !important; border-radius: 14px; }
+.ms-desktop .catalogCard:hover .catalogCard-main,
+.ms-desktop .catalogCard:hover .catalogCard-extra { background: var(--b-surface-2) !important; }
+.ms-desktop .catalogCard-image-i, .catalog-card__image { background: var(--b-plate) !important; border-radius: 10px; }
+.catalog-card { background: var(--b-surface); border-radius: 14px; }
+.catalog-card__view { background: var(--b-plate); border-radius: 12px; }
+.goods--cards .goods__item { border-color: var(--b-line) !important; }
+.catalogCard-oldPrice, .catalog-card__price--old { color: var(--b-muted) !important; }
+
+/* ---------- фільтр і сортування ---------- */
+.filter__dropdown, .catalog-sorting__list, .filter-panel, .filter-panel__content, .mm-panel {
+  background: var(--b-surface) !important; color: var(--b-text);
+}
+.filter__units, .filter-item__quantity { color: var(--b-muted) !important; }
+.checkbox { border-color: #555 !important; background: transparent !important; }
+.filter-current-group .btn, .filter-current__item { background: var(--b-surface-2) !important; color: var(--b-text) !important; border-color: var(--b-line) !important; }
+.pager__item, .pager__button { border-color: var(--b-line) !important; }
+
+/* ---------- головна ---------- */
+.top-reviews .review-item, .front-news .entries, .front-news__container {
+  background: var(--b-surface) !important; border-color: var(--b-line) !important;
+}
+.ms-page-home .catalogCard-image-i { background: var(--b-plate) !important; }
+.ms-brand { background: var(--b-surface) !important; }
+.ms-brand:hover { background: var(--b-surface-2) !important; }
+.ms-usp { background: #060606; border-bottom: 1px solid var(--b-line); }
+.ms-tile { box-shadow: 0 0 0 1px var(--b-line); }
+.ms-h2, .ms-page-home .front-news .h2, .ms-page-home .front-news .h2 a, .ms-page-home .top-reviews .h2, .ms-page-home .promo .catalogTabs-nav-a {
+  color: #fff !important; font-size: clamp(26px, 3vw, 44px);
+}
+
+/* ---------- чіпи ---------- */
+.ms-chip { background: transparent; border-color: #3a3a3a; color: var(--b-text) !important; }
+.ms-chip:hover { border-color: var(--b-text); }
+.ms-chip sup { color: var(--b-muted); }
+
+/* ---------- товар ---------- */
+.ms-spec { background: var(--b-surface-2); border: 1px solid var(--b-line); }
+.ms-spec b { color: #fff; }
+.ms-link { color: var(--b-text); }
+.ms-trust { border-color: var(--b-line); background: var(--b-surface); }
+.ms-trust li, .ms-trust a { color: var(--b-text); }
+.ms-page-product details.product__group-item { border-color: var(--b-line); }
+.ms-page-product .product-features__row:nth-child(odd) { background: var(--b-surface) !important; }
+.ms-page-product .product-features__row { border-color: var(--b-line) !important; }
+.product__section--gallery .gallery, .product-gallery, .product__section--gallery img { background: var(--b-plate); border-radius: 14px; }
+.ms-collapse::after { background: linear-gradient(rgba(12, 12, 12, 0), var(--b-bg)); }
+.ms-collapse__btn { background: transparent; color: var(--b-text); border-color: #555; }
+.ms-collapse__btn:hover { background: #fff; color: #000; }
+/* Опис-лендинг KTM має власні світлі картки — переводимо їх у графіт */
+.ktm-product-card-container [class*="ktm-feature"], .ktm-product-card-container [class*="card"] {
+  background-color: var(--b-surface) !important; border-color: var(--b-line) !important; box-shadow: none !important;
+}
+.ktm-feature-subtitle { color: #fff !important; }
+.product-order .btn:not(.__special) { background: transparent !important; }
+
+/* ---------- футер ---------- */
+.footer, .footer__container { background: #070707 !important; color: var(--b-muted); border-top: 1px solid var(--b-line); }
+.footer__heading, .footer .sol-footer-label { color: #fff !important; }
+.footer a, .footer .link, .sol-footer-add, .footer__link { color: var(--b-muted) !important; }
+.footer a:hover { color: #fff !important; }
+
+/* ---------- липка панель ---------- */
+.ms-sticky { background: rgba(6, 6, 6, .96); border-top: 1px solid var(--b-line); }
+
+/* ---------- залишки світлих фонів (tools/probe.mjs b bg) ---------- */
+/* мобільний шаблон: обгортки мають власний білий фон */
+.product-card, .product-card--main, .storefront, .goods__item, .controls-panel, .sticky-panel, .footer__base,
+.modal__box, .search-results, .sol-lang-popup__content {
+  background: var(--b-bg) !important; color: var(--b-text);
+}
+.controls-panel, .sticky-panel { border-bottom: 1px solid var(--b-line) !important; }
+.goods__item { background: transparent !important; }
+.catalog-card__view, .catalog-card__image { background: var(--b-plate) !important; }
+/* кнопки-іконки в мобільній шапці не мають рамок */
+.header .btn, .header-bar .btn, .btn--clear, .btn--icon { border: 0 !important; background: transparent !important; box-shadow: none !important; }
+/* десктопні дропдауни й підказки */
+.currency-selector__dropdown, .lang-menu__dropdown, .j-tooltip, .tooltip__wrapper, .catalog-sorting__dropdown {
+  background: var(--b-surface) !important; color: var(--b-text) !important; border-color: var(--b-line) !important;
+}
+.catalog-sorting__item { background: transparent !important; color: var(--b-text) !important; }
+/* таблиця характеристик: парні рядки теж темні */
+.product-features__row, .product-features__table tr, main table tr { background: transparent !important; }
+/* поля форм (відгук, швидке замовлення) */
+input.field, textarea.field, .field.__input, .field.__text, .form input, .form textarea {
+  background: var(--b-surface-2) !important; color: var(--b-text) !important; border-color: #3a3a3a !important;
+}
+.gallery, section.gallery { background: transparent !important; }
+.gallery__photo-img { background: var(--b-plate); }
+.pager__item--all { background: transparent !important; color: var(--b-text) !important; border-color: var(--b-line) !important; }
+/* SEO-тексти категорії: білі картки → графіт */
+.catalog__text, .catalog__text *, .seo-text, .seo-text * { background-color: transparent !important; color: var(--b-text) !important; }
+/* градієнт «Розгорнути» в SEO-тексті головної був білим */
+.frontInfo [class*="gradient"], .frontInfo .text::after, .frontInfo-about *::after { background: linear-gradient(rgba(12, 12, 12, 0), var(--b-bg)) !important; }
+.phones__item-link, .upButton-btn__hint { color: var(--b-text) !important; }
+.upButton-btn { background: var(--b-surface-2) !important; color: #fff !important; }
+
+/* меню: текстова навігація і на головній (ядро робить це лише на внутрішніх сторінках) */
+.ms-desktop.ms-page-home .header__bottom { background: rgba(8, 8, 8, .55) !important; border-top: 1px solid rgba(255,255,255,.08); padding: 0; }
+.ms.ms-desktop.ms-page-home .products-menu .products-menu__title-link {
+  background: transparent !important; backdrop-filter: none; border-radius: 0; color: #fff !important;
+  padding: 16px clamp(6px, .9vw, 14px); font-size: clamp(12px, .95vw, 14px); font-weight: 600; white-space: nowrap; position: relative;
+}
+.ms.ms-desktop.ms-page-home .products-menu__title-link br { display: none; }
+.ms.ms-desktop.ms-page-home .products-menu__title-link::after {
+  content: ""; position: absolute; left: clamp(6px, .9vw, 14px); right: clamp(6px, .9vw, 14px); bottom: 8px; height: 2px;
+  background: var(--ms-brand); transform: scaleX(0); transform-origin: left; transition: transform .25s;
+}
+.ms.ms-desktop.ms-page-home .products-menu__title-link:hover::after { transform: scaleX(1); }

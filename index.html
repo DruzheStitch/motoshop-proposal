@@ -197,6 +197,17 @@
   .wp-verdict .price small { display: block; margin-top: 6px; font: 500 12px/1.3 var(--mono); font-style: normal; color: var(--muted); letter-spacing: 0; }
   .wp-verdict p { color: #d9d5ce; }
   @media (max-width: 820px) { .wp-procon { grid-template-columns: 1fr; } .wp-verdict { grid-template-columns: 1fr; } }
+
+  /* ---------- кнопки демо ---------- */
+  .demo-btn { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 22px; border-radius: 999px; background: var(--orange); color: #fff; text-decoration: none; font: 700 15px/1 var(--body); font-stretch: 110%; text-transform: uppercase; letter-spacing: .03em; box-shadow: 0 10px 30px rgba(252, 57, 5, .25); transition: transform .2s, box-shadow .2s; }
+  .demo-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(252, 57, 5, .35); }
+  .demo-btn svg { width: 18px; height: 18px; }
+  .demo-btn--ghost { background: transparent; border: 1px solid var(--line); box-shadow: none; color: var(--text); }
+  .demo-btn--ghost:hover { border-color: var(--text); box-shadow: none; }
+  .demo-note { font: 500 13px/1.4 var(--mono); color: var(--muted); }
+  .hero-cta { margin-top: 30px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+  .variant-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+  @media (prefers-reduced-motion: reduce) { .demo-btn { transition: none; } }
 </style>
 </head>
 <body>
@@ -207,6 +218,7 @@
     <div class="eyebrow">Комерційна пропозиція · motoshop.ua</div>
     <h1 style="margin-top:22px">Сайт, що продає<br><em>мотоцикли,</em> а не гортається</h1>
     <p class="lede">Редизайн головної, категорій і сторінок товару motoshop.ua без переїзду з Хорошопу, без зміни адмінки й без ризику для SEO. Нижче — реальні скріншоти вашого сайту до і після: робоча версія вже зібрана й перевірена на десктопі та смартфоні.</p>
+    <div class="hero-cta"><a class="demo-btn" href="https://druzhestitch.github.io/motoshop-proposal/demo/a/home.html" target="_blank" rel="noopener">Поклацати живе демо <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="demo-note">головна, каталог і товар · на телефоні відкриється мобільна версія</span></div>
     <div class="facts">
       <div class="fact"><b class="num">−71<span>%</span></b><small>довжина сторінки товару: 14 599 → 4 183 px</small></div>
       <div class="fact"><b>3</b><small>варіанти дизайну на вибір — усі на тому самому сайті</small></div>
@@ -347,6 +359,7 @@
         <figure><button type="button" data-cap="A · Товар"><img src="shots/prod-a-after.jpg" alt="Варіант A, товар" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
         <figure class="phone"><button type="button" data-cap="A · Товар, смартфон"><img src="shots/prod-m-a-after.jpg" alt="Варіант A, товар на смартфоні" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
       </div>
+      <div class="variant-cta"><a class="demo-btn" href="https://druzhestitch.github.io/motoshop-proposal/demo/a/home.html" target="_blank" rel="noopener">Відкрити демо варіанту A · Еволюція <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="demo-note">перемикайте варіанти й сторінки на плашці внизу ліворуч</span></div>
     </div>
 
     <div class="variant" role="tabpanel" id="panel-b" aria-labelledby="tab-b" hidden>
@@ -365,6 +378,7 @@
         <figure><button type="button" data-cap="B · Товар"><img src="shots/prod-b-after.jpg" alt="Варіант B, товар" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
         <figure class="phone"><button type="button" data-cap="B · Товар, смартфон"><img src="shots/prod-m-b-after.jpg" alt="Варіант B, товар на смартфоні" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
       </div>
+      <div class="variant-cta"><a class="demo-btn" href="https://druzhestitch.github.io/motoshop-proposal/demo/b/home.html" target="_blank" rel="noopener">Відкрити демо варіанту B · Night Ride <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="demo-note">перемикайте варіанти й сторінки на плашці внизу ліворуч</span></div>
     </div>
 
     <div class="variant" role="tabpanel" id="panel-c" aria-labelledby="tab-c" hidden>
@@ -383,6 +397,7 @@
         <figure><button type="button" data-cap="C · Товар"><img src="shots/prod-c-after.jpg" alt="Варіант C, товар" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
         <figure class="phone"><button type="button" data-cap="C · Товар, смартфон"><img src="shots/prod-m-c-after.jpg" alt="Варіант C, товар на смартфоні" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
       </div>
+      <div class="variant-cta"><a class="demo-btn" href="https://druzhestitch.github.io/motoshop-proposal/demo/c/home.html" target="_blank" rel="noopener">Відкрити демо варіанту C · Showroom <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="demo-note">перемикайте варіанти й сторінки на плашці внизу ліворуч</span></div>
     </div>
 
     <div class="variant" role="tabpanel" id="panel-0" aria-labelledby="tab-0" hidden>
@@ -399,6 +414,7 @@
         <figure><button type="button" data-cap="Зараз · Товар"><img src="shots/prod-0-before.jpg" alt="Товар зараз" loading="lazy" width="1440" height="900"></button><figcaption>Товар</figcaption></figure>
         <figure class="phone"><button type="button" data-cap="Зараз · Товар, смартфон"><img src="shots/prod-m-0-before.jpg" alt="Товар на смартфоні зараз" loading="lazy" width="780" height="1688"></button><figcaption>Смартфон</figcaption></figure>
       </div>
+      <div class="variant-cta"><a class="demo-btn demo-btn--ghost" href="https://druzhestitch.github.io/motoshop-proposal/demo/0/home.html" target="_blank" rel="noopener">Відкрити демо сайту зараз <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="demo-note">перемикайте варіанти й сторінки на плашці внизу ліворуч</span></div>
     </div>
   </div>
 </section>
@@ -555,8 +571,8 @@
   <div class="wrap">
     <div class="eyebrow">Наступний крок</div>
     <h2>Оберіть варіант —<br>далі справа за мною</h2>
-    <p class="muted">Покажу будь-який із трьох варіантів наживо на копії вашого сайту — з вашими товарами, цінами й кошиком.</p>
-    <div class="choices"><span><b>A</b> Еволюція</span><span><b>B</b> Night Ride</span><span><b>C</b> Showroom</span></div>
+    <p class="muted">Кожен варіант можна поклацати просто зараз — з вашими товарами й цінами, на комп'ютері й на телефоні. Оберіть той, що до вподоби.</p>
+    <div class="choices"><a class="demo-btn demo-btn--ghost" href="https://druzhestitch.github.io/motoshop-proposal/demo/a/home.html" target="_blank" rel="noopener"><b style="color:var(--orange)">A</b>&nbsp;Еволюція</a><a class="demo-btn demo-btn--ghost" href="https://druzhestitch.github.io/motoshop-proposal/demo/b/home.html" target="_blank" rel="noopener"><b style="color:var(--orange)">B</b>&nbsp;Night Ride</a><a class="demo-btn demo-btn--ghost" href="https://druzhestitch.github.io/motoshop-proposal/demo/c/home.html" target="_blank" rel="noopener"><b style="color:var(--orange)">C</b>&nbsp;Showroom</a></div>
   </div>
 </section>
 
